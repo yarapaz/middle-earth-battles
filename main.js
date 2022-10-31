@@ -4,9 +4,10 @@
 const btn = document.querySelector('.js_btn');
 const select = document.querySelector('.js_select');
 const battleText = document.querySelector('.js_battle_text');
-const userCounter = document.querySelector('.js_user_counter');
-const computerCounter = document.querySelector('.js_computer_counter');
-let counter = 0;
+const userCounterText = document.querySelector('.js_user_counter');
+const computerCounterText = document.querySelector('.js_computer_counter');
+let userCounter = 0;
+let computerCounter = 0;
 
 //Functions
 function randomNumber(max) {
@@ -33,17 +34,19 @@ function battleMessage() {
   let selectValue = parseInt(select.value);
   const counterMaxLimit = 10;
   if (selectValue < randomNumber(5) && counter < counterMaxLimit) {
-    counter = counter + 1;
-    computerCounter.innerHTML = counter;
+    computerCounter = counter + 1;
+    computerCounterText.innerHTML = computerCounter;
     battleText.innerHTML =
       '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
   } else if (selectValue > randomNumber(5) && counter < counterMaxLimit) {
-    counter = counter + 1;
-    userCounter.innerHTML = counter;
+    userCounter = counter + 1;
+    userCounterText.innerHTML = userCounter;
     battleText.innerHTML = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
   } else if (selectValue === randomNumber(5) && counter < counterMaxLimit) {
     battleText.innerHTML = 'Empate';
-  } else if (counter === counterMaxLimit) {
+  }
+  if (counter === counterMaxLimit) {
+    debugger;
     compare(userCounter, computerCounter);
   }
 }
