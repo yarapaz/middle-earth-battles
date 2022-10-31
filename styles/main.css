@@ -84,7 +84,7 @@
 }
 .box {
   display: flex;
-  gap: 80px;
+  gap: 20px;
   color: var(--secondary-color);
 }
 .uppercase {
