@@ -9,31 +9,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini juego - Los anillos de poder</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 
 <body>
-    <main>
-        <h1 class="title_1 uppercase">Juego</h1>
-        <h2 class="title_2 uppercase">Los anillos de poder</h2>
-        <p class="text_1">¡La <span class="capitalize">tierra media</span> está en guerra! En ella lucharán razas leales
-            a <span class="capitalize">sauron</span> contra otras bondadosas
-            que no quieren que el mal reine sobre sus tierras.
-        </p>
-        <strong class="text_2">Eres un jugador del ejército del bien, no olvides tu misión de ganar la batalla.</strong>
-        <form action="">
-            <select class="select" name="" id="">
-                <option value="" disabled selected>Selecciona la raza con la que vas a jugar</option>
-                <option value="">Raza 1: Pelosos</option>
-                <option value="">Raza 2: Sureños buenos</option>
-                <option value="">Raza 3: Enanos</option>
-                <option value="">Raza 4: Numenóreanos</option>
-                <option value="">Raza 5: Elfos</option>
-            </select>
-            <button class="btn">Batalla</button>
-        </form>
-        <p class="text_3">¡Comienza la batalla!</p>
-        <aside></aside>
+    <main class="main">
+        <section class="section">
+            <h1 class="title_1 uppercase">Juego</h1>
+            <h2 class="title_2 uppercase">Los anillos de poder</h2>
+            <p class="text_1">¡La <span class="capitalize">tierra media</span> está en guerra! En ella lucharán razas
+                leales
+                a <span class="capitalize">sauron</span> contra otras bondadosas
+                que no quieren que el mal reine sobre sus tierras.
+            </p>
+            <strong class="text_2">Eres un jugador del ejército del bien, no olvides tu misión de ganar la
+                batalla.</strong>
+            <form class="form" action="">
+                <select class="select" name="" id="">
+                    <option value="" disabled selected>Selecciona la raza con la que vas a jugar</option>
+                    <option value="">Raza 1: Pelosos</option>
+                    <option value="">Raza 2: Sureños buenos</option>
+                    <option value="">Raza 3: Enanos</option>
+                    <option value="">Raza 4: Numenóreanos</option>
+                    <option value="">Raza 5: Elfos</option>
+                </select>
+                <button class="btn">Batalla</button>
+            </form>
+            <p class="text_3">¡Comienza la batalla!</p>
+        </section>
+        <aside class="aside"></aside>
     </main>
     <script src="./main.js"></script>
 </body>

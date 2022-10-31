@@ -1,0 +1,77 @@
+:root {
+  --primary-color: rgb(112, 7, 7);
+  --secondary-color: grey;
+  --main-font-family: 'Open Sans', sans-serif;
+}
+.main {
+  width: 70vw;
+  display: flex;
+  flex-direction: row-reverse;
+  font-family: var(--main-font-family);
+}
+.section {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.title_1 {
+  color: var(--secondary-color);
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.title_2 {
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.text_1 {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.text_2 {
+  font-weight: 900;
+}
+
+.form {
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+.select {
+  opacity: calc(0.5);
+}
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+}
+.text_3 {
+  background-color: var(--primary-color);
+  width: 370px;
+  height: 30px;
+  text-align: center;
+  padding: 6px;
+  color: white;
+  border-radius: 5px;
+  opacity: calc(0.5);
+}
+.aside {
+  background-image: url('../images/aside-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30vw;
+  height: 100vh;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
