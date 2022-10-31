@@ -13,14 +13,23 @@ function randomNumber(max) {
 function battleMessage() {
   let selectValue = parseInt(select.value);
   if (selectValue < randomNumber(6)) {
-    battleText.classList.add('bigger');
     battleText.innerHTML =
       '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
   } else if (selectValue > randomNumber(6)) {
-    battleText.classList.remove('bigger');
     battleText.innerHTML = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
   } else if (selectValue === randomNumber(6)) {
-    battleText.classList.remove('bigger');
+    battleText.innerHTML = 'Empate';
+  }
+}
+
+function counter() {
+  let counter = 0;
+  if (selectValue < randomNumber(6)) {
+    battleText.innerHTML =
+      '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
+  } else if (selectValue > randomNumber(6)) {
+    battleText.innerHTML = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
+  } else if (selectValue === randomNumber(6)) {
     battleText.innerHTML = 'Empate';
   }
 }

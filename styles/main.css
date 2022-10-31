@@ -54,15 +54,11 @@
 .text_3 {
   background-color: var(--primary-color);
   width: 370px;
-  height: 30px;
   text-align: center;
   padding: 6px;
   color: white;
   border-radius: 5px;
   opacity: calc(0.5);
-}
-.bigger {
-  height: 45px;
 }
 .aside {
   background-image: url('../images/aside-background.jpg');
@@ -72,6 +68,24 @@
   height: 100vh;
 }
 .article {
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+
+.title_3 {
+  color: var(--primary-color);
+}
+.box {
+  display: flex;
+  gap: 80px;
+  color: var(--secondary-color);
 }
 .uppercase {
   text-transform: uppercase;
