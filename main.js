@@ -54,7 +54,7 @@ function compareCounter(userCounter, computerCounter) {
       'Has perdido el juego. Las sombras se apoderarán de las tierras de los hombres libres';
   } else if (userCounter === computerCounter) {
     battleText.innerHTML =
-      '¡Habéis empatado! Todo se decidirá en la siguiente batalla';
+      '¡Habéis empatado! Todo se decidirá en la siguiente ronda de batallas';
   }
 }
 
@@ -76,31 +76,19 @@ function restartGame() {
 function comparePP(userRacePP, computerRacePP) {
   const maxMoves = 10;
   moves++;
-  if (
-    userRacePP < computerRacePP &&
-    computerCounter < maxMoves &&
-    userCounter < maxMoves
-  ) {
+  if (userRacePP < computerRacePP && moves < maxMoves) {
     computerCounter++;
     computerCounterText.innerHTML = computerCounter;
     battleText.innerHTML =
       '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
-  } else if (
-    userRacePP > computerRacePP &&
-    userCounter < maxMoves &&
-    computerCounter < maxMoves
-  ) {
+  } else if (userRacePP > computerRacePP && moves < maxMoves) {
     userCounter++;
     userCounterText.innerHTML = userCounter;
     battleText.innerHTML = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
-  } else if (
-    userRacePP === computerRacePP &&
-    computerCounter < maxMoves &&
-    userCounter < maxMoves
-  ) {
+  } else if (userRacePP === computerRacePP && moves < maxMoves) {
     battleText.innerHTML = 'Empate';
   }
-  if (userCounter === maxMoves || computerCounter === maxMoves) {
+  if (moves === maxMoves) {
     compareCounter(userCounter, computerCounter);
     gameOver();
   }
