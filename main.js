@@ -4,6 +4,8 @@
 const btn = document.querySelector('.js_btn');
 const select = document.querySelector('.js_select');
 const battleText = document.querySelector('.js_battle_text');
+const userCounter = document.querySelector('.js_user_counter');
+const computerCounter = document.querySelector('.js_computer_counter');
 
 //Functions
 function randomNumber(max) {
@@ -12,25 +14,28 @@ function randomNumber(max) {
 
 function battleMessage() {
   let selectValue = parseInt(select.value);
-  if (selectValue < randomNumber(6)) {
-    battleText.innerHTML =
-      '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
-  } else if (selectValue > randomNumber(6)) {
-    battleText.innerHTML = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
-  } else if (selectValue === randomNumber(6)) {
-    battleText.innerHTML = 'Empate';
-  }
-}
-
-function counter() {
   let counter = 0;
-  if (selectValue < randomNumber(6)) {
+  const counterMaxLimit = 10;
+  counter++;
+  if (selectValue < randomNumber(5) && counter < counterMaxLimit) {
     battleText.innerHTML =
       '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
-  } else if (selectValue > randomNumber(6)) {
+    computerCounter.innerHTML = `Ordenador:  ${counter}`;
+  } else if (selectValue > randomNumber(5) && counter < counterMaxLimit) {
     battleText.innerHTML = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
-  } else if (selectValue === randomNumber(6)) {
+    userCounter.innerHTML = `Jugadora:  ${counter}`;
+  } else if (selectValue === randomNumber(5) && counter < counterMaxLimit) {
     battleText.innerHTML = 'Empate';
+  } else if (counter === counterMaxLimit) {
+    if (userCounter > computerCounter) {
+      battleText.innerHTML =
+        '¡Has ganado el juego! Ahora la Tierra Media podrá vivir en paz';
+      btn.innerHTML = 'Reiniciar Juego';
+    } else {
+      battleText.innerHTML =
+        'Has perdido el juego. Las sombras se apoderarán de las tierras de los hombres libres';
+      btn.innerHTML = 'Reiniciar Juego';
+    }
   }
 }
 
