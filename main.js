@@ -33,19 +33,23 @@ function compare(user, computer) {
 function battleMessage() {
   let selectValue = parseInt(select.value);
   const counterMaxLimit = 10;
-  if (selectValue < randomNumber(5) && counter < counterMaxLimit) {
+  if (selectValue < randomNumber(5) && computerCounter < counterMaxLimit) {
     computerCounter = counter + 1;
     computerCounterText.innerHTML = computerCounter;
     battleText.innerHTML =
       '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
-  } else if (selectValue > randomNumber(5) && counter < counterMaxLimit) {
+  } else if (selectValue > randomNumber(5) && userCounter < counterMaxLimit) {
     userCounter = counter + 1;
     userCounterText.innerHTML = userCounter;
     battleText.innerHTML = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
-  } else if (selectValue === randomNumber(5) && counter < counterMaxLimit) {
+  } else if (
+    selectValue === randomNumber(5) &&
+    computerCounter < counterMaxLimit &&
+    userCounter < counterMaxLimit
+  ) {
     battleText.innerHTML = 'Empate';
   }
-  if (counter === counterMaxLimit) {
+  if (userCounter === counterMaxLimit || computerCounter === counterMaxLimit) {
     debugger;
     compare(userCounter, computerCounter);
   }
