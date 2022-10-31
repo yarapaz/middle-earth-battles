@@ -91,6 +91,10 @@
   text-transform: uppercase;
 }
 
+.hidden {
+  display: none;
+}
+
 .capitalize {
   text-transform: capitalize;
 }
