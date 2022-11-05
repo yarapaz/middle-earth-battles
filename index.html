@@ -18,7 +18,7 @@
 
 <body>
     <main class="main">
-        <section class="section">
+        <article class="playground">
             <h1 class="title_1 uppercase">Juego</h1>
             <h2 class="title_2 uppercase">Los anillos de poder</h2>
             <p class="text_1">¡La <span class="capitalize">tierra media</span> está en guerra! En ella lucharán razas
@@ -31,29 +31,39 @@
             <form class="form" action="">
                 <select class="select js_select" name="" id="">
                     <option value="0" disabled selected>Selecciona la raza con la que vas a jugar</option>
-                    <option value="1">Raza 1: Pelosos</option>
-                    <option value="2">Raza 2: Sureños buenos</option>
+                    <option value="1">Raza 1: Hobbits</option>
+                    <option value="2">Raza 2: Sureños</option>
                     <option value="3">Raza 3: Enanos</option>
                     <option value="4">Raza 4: Numenóreanos</option>
                     <option value="5">Raza 5: Elfos</option>
                 </select>
                 <button class="btn js_battle_btn">Batalla</button>
-                <button class="btn hidden js_reset_btn">Reiniciar juego</button>
+                <button class="btn js_reset_btn hidden">Reiniciar juego</button>
             </form>
             <p class="text_3 js_battle_text">¡Comienza la batalla!</p>
-            <div class="js_user_image" style="background-image: url()"></div>
-            <div class="js_computer_image" style="background-image: url()"></div>
-            <article class="article">
-                <h3 class="title_3">Puntuaciones</h3>
-                <div class="box">
-                    <p class="text_4">Jugadora:</p>
-                    <p class="text_4 js_user_counter">0</p>
-                    <p class="text_5">Ordenador:</p>
-                    <p class="text_4 js_computer_counter">0</p>
-                </div>
-
+            <article class="races">
+                <section class="images">
+                    <div class="image--user js_user_image" style="background-image: url('./images/good-forces.png')">
+                    </div>
+                    <div class="image--computer js_computer_image"
+                        style="background-image: url('./images/evil-forces.jpg')">
+                    </div>
+                </section>
+                <section class="names">
+                    <p class="name--user js_user_race"></p>
+                    <p class="name--computer js_computer_race"></p>
+                </section>
             </article>
-        </section>
+            <article class="scores">
+                <h3 class="title_3">Puntuaciones</h3>
+                <section class="counter">
+                    <p class="user">Jugadora:</p>
+                    <p class="user__score js_user_counter">0</p>
+                    <p class="computer">Ordenador:</p>
+                    <p class="computer__score js_computer_counter">0</p>
+                </section>
+            </article>
+        </article>
         <aside class="aside"></aside>
     </main>
     <script src="./js/main.js"></script>

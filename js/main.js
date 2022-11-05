@@ -9,9 +9,15 @@ const userCounterText = document.querySelector('.js_user_counter');
 const computerCounterText = document.querySelector('.js_computer_counter');
 const userRaceImage = document.querySelector('.js_user_image');
 const computerRaceImage = document.querySelector('.js_computer_image');
+const userRaceText = document.querySelector('.js_user_race');
+const computerRaceText = document.querySelector('.js_computer_race');
+let defaultUserImage = 'background-image: url("./images/good-forces.png")';
+let defaultComputerImage = 'background-image: url("./images/evil-forces.jpg")';
+let defaultMessage = '¡Comienza la batalla!';
 let userCounter = 0;
 let computerCounter = 0;
 let turns = 0;
+let defaultText = '';
 
 //Functions
 function getRandomNumber(max) {
@@ -30,81 +36,12 @@ function paintComputerRaceImage(image) {
   computerRaceImage.style = image;
 }
 
-function getComputerRacePP() {
-  const randomNumber = getRandomNumber(5);
-  let racePP = 0;
-  let raceText = '';
-  let raceImage = '';
-  //I don't create a raceName variable as in the getUserRacePP function because in this case I don't have a way to know which race the computer has selected. I only know a random number to work with. That's the reason why I introduce the name directly.
-
-  if (randomNumber === 1) {
-    racePP = 2;
-    raceText = 'Vas a combatir con los: Sureños malos';
-    raceImage = 'background-image: url("./images/sureños malos.jpg")';
-  } else if (randomNumber === 2) {
-    racePP = 2;
-    raceText = 'Vas a combatir con los: Orcos';
-    raceImage = 'background-image: url("./images/orcos.jpg")';
-  } else if (randomNumber === 3) {
-    racePP = 2;
-    raceText = 'Vas a combatir con los: Goblins';
-    raceImage = 'background-image: url("./images/goblins.jpg")';
-  } else if (randomNumber === 4) {
-    racePP = 3;
-    raceText = 'Vas a combatir con los: Huargos';
-    raceImage = 'background-image: url("./images/huargos.jpg")';
-  } else if (randomNumber === 5) {
-    racePP = 5;
-    raceText = 'Vas a combatir con los: Trolls';
-    raceImage = 'background-image: url("./images/trolls.jpg")';
-  }
-  paintBattleText(raceText);
-  paintComputerRaceImage(raceImage);
-  return racePP;
+function paintUserRaceName(name) {
+  userRaceText.innerHTML = name;
 }
 
-function getUserRacePP() {
-  let racePP = parseInt(reset.value);
-  let raceName = reset.innerHTML;
-  let raceText = '';
-  let raceImage = '';
-
-  if (option === 0) {
-    raceText = 'Seleccione una raza, por favor';
-    raceImage = 'background-image: url("./images/default-Image.jpg")'; //imagen por defecto
-  } else if (option === 1) {
-    raceText = `Vas a combatir con los: ${raceName}`;
-    raceImage = 'background-image: url("./images/hobbits.jpg")';
-  } else if (option === 2) {
-    raceText = `Vas a combatir con los: ${raceName}`;
-    raceImage = 'background-image: url("./images/sureños buenos.jpg")';
-  } else if (option === 3) {
-    raceText = `Vas a combatir con los: ${raceName}`;
-    raceImage = 'background-image: url("./images/enanos.jpg")';
-  } else if (option === 4) {
-    raceText = `Vas a combatir con los: ${raceName}`;
-    raceImage = 'background-image: url("./images/numenoreanos.jpg")';
-  } else if (option === 5) {
-    raceText = `Vas a combatir con los: ${raceName}`;
-    raceImage = 'background-image: url("./images/elfos.jpg")';
-  }
-  paintBattleText(raceText);
-  paintUserRaceImage(raceImage);
-  return racePP;
-}
-
-function restartCounters() {
-  userCounter = 0;
-  computerCounter = 0;
-  turns = 0;
-  userCounterText.innerHTML = userCounter;
-  computerCounterText.innerHTML = computerCounter;
-}
-
-function handleResetClick(event) {
-  event.preventDefault();
-  restartGame();
-  restartCounters();
+function paintComputerRaceName(raceName) {
+  computerRaceText.innerHTML = raceName;
 }
 
 function compareCounter(userCounter, computerCounter) {
@@ -132,37 +69,121 @@ function gameOver() {
   resetBtn.classList.remove('hidden');
 }
 
+function handleResetClick(event) {
+  event.preventDefault();
+  restartGame();
+  restartCounters();
+}
+
 function restartGame() {
   battleBtn.classList.remove('hidden');
   resetBtn.classList.add('hidden');
-  let defaultMessage = '¡Comienza la batalla!';
   paintBattleText(defaultMessage);
+  let name = '';
+  paintComputerRaceImage(defaultComputerImage);
+  paintComputerRaceName(name);
+  paintUserRaceImage(defaultUserImage);
+  paintUserRaceName(name);
+  select.value = 0;
 }
 
-function maxTurns() {
-  compareCounter(userCounter, computerCounter);
-  gameOver();
+function restartCounters() {
+  userCounter = 0;
+  computerCounter = 0;
+  turns = 0;
+  userCounterText.innerHTML = userCounter;
+  computerCounterText.innerHTML = computerCounter;
+}
+
+function getComputerRacePP() {
+  const randomNumber = getRandomNumber(5);
+  let racePP = 0;
+  let raceImage = '';
+  let raceName = '';
+
+  if (randomNumber === 1) {
+    racePP = 2;
+    raceImage = 'background-image: url("./images/sureños malos.jpg")';
+    raceName = 'Haradrim';
+  } else if (randomNumber === 2) {
+    racePP = 2;
+    raceImage = 'background-image: url("./images/orcos.jpg")';
+    raceName = 'Orcos';
+  } else if (randomNumber === 3) {
+    racePP = 2;
+    raceImage = 'background-image: url("./images/goblins.jpg")';
+    raceName = 'Goblins';
+  } else if (randomNumber === 4) {
+    racePP = 3;
+    raceImage = 'background-image: url("./images/huargos.jpg")';
+    raceName = 'Huargos';
+  } else if (randomNumber === 5) {
+    racePP = 5;
+    raceImage = 'background-image: url("./images/trolls.jpg")';
+    raceName = 'Trolls';
+  }
+  paintComputerRaceImage(raceImage);
+  paintComputerRaceName(raceName);
+  return racePP;
+}
+
+function getUserRacePP() {
+  let racePP = parseInt(select.value);
+  let raceName = '';
+  let raceImage = '';
+
+  if (racePP === 1) {
+    raceImage = 'background-image: url("./images/hobbits.jpg")';
+    raceName = 'Hobbits';
+  } else if (racePP === 2) {
+    raceImage = 'background-image: url("./images/sureños buenos.jpg")';
+    raceName = 'Sureños';
+  } else if (racePP === 3) {
+    raceImage = 'background-image: url("./images/enanos.jpg")';
+    raceName = 'Enanos';
+  } else if (racePP === 4) {
+    raceImage = 'background-image: url("./images/numenoreanos .jpg")';
+    raceName = 'Numenóreanos';
+  } else if (racePP === 5) {
+    raceImage = 'background-image: url("./images/elfos.jpg")';
+    raceName = 'Elfos';
+  }
+  paintUserRaceImage(raceImage);
+  paintUserRaceName(raceName);
+  return racePP;
 }
 
 function comparePP(userRacePP, computerRacePP) {
   const maxTurns = 10;
   let resultBattle = '';
   turns++;
-  if (userRacePP < computerRacePP && turns < maxTurns) {
+
+  if (userRacePP === 0 && turns <= maxTurns) {
+    paintComputerRaceImage(defaultComputerImage);
+    paintUserRaceImage(defaultUserImage);
+    resultBattle = 'Seleccione una raza para empezar a jugar';
+    paintBattleText(resultBattle);
+    let raceName = '';
+    paintComputerRaceName(raceName);
+    turns--;
+  } else if (userRacePP < computerRacePP && turns <= maxTurns) {
     computerCounter++;
     computerCounterText.innerHTML = computerCounter;
     resultBattle = '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
-  } else if (userRacePP > computerRacePP && turns < maxTurns) {
+    paintBattleText(resultBattle);
+  } else if (userRacePP > computerRacePP && turns <= maxTurns) {
     userCounter++;
     userCounterText.innerHTML = userCounter;
     resultBattle = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
-  } else if (userRacePP === computerRacePP && turns < maxTurns) {
+    paintBattleText(resultBattle);
+  } else if (userRacePP === computerRacePP && turns <= maxTurns) {
     resultBattle = 'Empate';
+    paintBattleText(resultBattle);
   }
   if (turns === maxTurns) {
-    maxTurns();
+    compareCounter(userCounter, computerCounter);
+    gameOver();
   }
-  paintBattleText(resultBattle);
 }
 
 function handleBattleClick(event) {
