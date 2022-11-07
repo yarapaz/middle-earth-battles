@@ -44,6 +44,11 @@ function paintComputerRaceName(raceName) {
   computerRaceText.innerHTML = raceName;
 }
 
+function sumCounter(count) {
+  count++;
+  return count;
+}
+
 function compareCounter(userCounter, computerCounter) {
   let finalResult = '';
   if (userCounter > computerCounter) {
@@ -156,7 +161,7 @@ function getUserRacePP() {
 function comparePP(userRacePP, computerRacePP) {
   const maxTurns = 10;
   let resultBattle = '';
-  turns++;
+  turns = sumCounter(turns);
 
   if (userRacePP === 0 && turns <= maxTurns) {
     paintComputerRaceImage(defaultComputerImage);
@@ -167,12 +172,12 @@ function comparePP(userRacePP, computerRacePP) {
     paintComputerRaceName(raceName);
     turns--;
   } else if (userRacePP < computerRacePP && turns <= maxTurns) {
-    computerCounter++;
+    computerCounter = sumCounter(computerCounter);
     computerCounterText.innerHTML = computerCounter;
     resultBattle = '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
     paintBattleText(resultBattle);
   } else if (userRacePP > computerRacePP && turns <= maxTurns) {
-    userCounter++;
+    userCounter = sumCounter(userCounter);
     userCounterText.innerHTML = userCounter;
     resultBattle = '¡Ha ganado el Ejército del Bien! Enhorabuena.';
     paintBattleText(resultBattle);
